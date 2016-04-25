@@ -1729,7 +1729,7 @@ class DB(object):
         sql = """
         copy {name} from 's3://{bucket_name}/data'
         credentials 'aws_access_key_id={AWS_ACCESS_KEY};aws_secret_access_key={AWS_SECRET_KEY}'
-        CSV IGNOREHEADER as 1 GZIP;
+        CSV IGNOREHEADER as 1 GZIP BLANKSASNULL EMPTYASNULL;
         """.format(name=name, bucket_name=bucket_name,
                    AWS_ACCESS_KEY=AWS_ACCESS_KEY, AWS_SECRET_KEY=AWS_SECRET_KEY)
         if print_sql:
